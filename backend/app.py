@@ -1,25 +1,21 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
+import random
 
 app = Flask(__name__)
-CORS(app)
 
-@app.route('/')
+@app.route("/")
 
 def home():
-    return "Inventory Monitoring API Running"
+    return "Backend Running"
 
-@app.route('/data')
+@app.route("/api/tank")
 
-def data():
+def tank():
+    return jsonify({
+        "level": random.randint(0,100),
+        "temperature": random.randint(20,40),
+        "status": "ONLINE"
+    })
 
-    inventory = {
-        "level": 76,
-        "temperature": 31,
-        "status": "Normal"
-    }
-
-    return jsonify(inventory)
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
