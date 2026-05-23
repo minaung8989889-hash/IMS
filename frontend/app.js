@@ -2,7 +2,7 @@ async function loadData() {
 
   try {
 
-    const response = await fetch("https://YOUR-RENDER-URL.onrender.com/data");
+    const response = await fetch("https://ims-cclz.onrender.com");
 
     const data = await response.json();
 
